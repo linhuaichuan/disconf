@@ -12,9 +12,9 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.alibaba.fastjson.JSON;
 import com.baidu.disconf.core.common.constants.Constants;
 import com.baidu.disconf.core.common.json.ValueVo;
-import com.baidu.disconf.core.common.utils.GsonUtils;
 import com.baidu.disconf.core.test.restful.RemoteMockServer;
 import com.github.tomakehurst.wiremock.junit.WireMockClassRule;
 
@@ -57,7 +57,7 @@ public class BaseCoreTestCase {
         // System.out.println(GsonUtils.toJson(valueVo));
         stubFor(get(urlEqualTo(RemoteMockServer.ITEM_URL))
                 .willReturn(aResponse().withHeader("Content-Type", RemoteMockServer.CONTENT_TYPE).withStatus(200)
-                        .withBody(GsonUtils.toJson(valueVo))));
+                        .withBody(JSON.toJSONString(valueVo))));
 
         //
         // 配置文件
@@ -116,7 +116,7 @@ public class BaseCoreTestCase {
         // System.out.println(GsonUtils.toJson(valueVo));
         stubFor(get(urlEqualTo(RemoteMockServer.ZOO_URL))
                 .willReturn(aResponse().withHeader("Content-Type", RemoteMockServer.CONTENT_TYPE).withStatus(200)
-                        .withBody(GsonUtils.toJson(valueVo))));
+                        .withBody(JSON.toJSONString(valueVo))));
 
         valueVo = new ValueVo();
         valueVo.setMessage("");
@@ -125,7 +125,7 @@ public class BaseCoreTestCase {
         // System.out.println(GsonUtils.toJson(valueVo));
         stubFor(get(urlEqualTo(RemoteMockServer.ZOO_PREFIX_URL))
                 .willReturn(aResponse().withHeader("Content-Type", RemoteMockServer.CONTENT_TYPE).withStatus(200)
-                        .withBody(GsonUtils.toJson(valueVo))));
+                        .withBody(JSON.toJSONString(valueVo))));
 
     }
 

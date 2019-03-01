@@ -1,14 +1,13 @@
 package com.baidu.disconf.client.test.json;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.Test;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.baidu.disconf.client.test.common.BaseSpringTestCase;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
 /**
  * Gson的测试
@@ -32,16 +31,13 @@ public class JsonTranslate extends BaseSpringTestCase {
         //
         // Convert a Map into JSON string.
         //
-        Gson gson = new Gson();
-        String json = gson.toJson(colours);
+        String json = JSON.toJSONString(colours);
         System.out.println("json = " + json);
 
         //
         // Convert JSON string back to Map.
         //
-        Type type = new TypeToken<Map<String, String>>() {
-        }.getType();
-        Map<String, String> map = gson.fromJson(json, type);
+        Map<String, String> map = JSONObject.parseObject(json, HashMap.class);
         for (String key : map.keySet()) {
             System.out.println("map.get = " + map.get(key));
         }

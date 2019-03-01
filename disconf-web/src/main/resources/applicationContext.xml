@@ -15,7 +15,9 @@
         http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd">
 
     <mvc:annotation-driven/>
-    <context:component-scan base-package="com.baidu"/>
+    <context:component-scan base-package="com.baidu">
+       	<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
     <aop:aspectj-autoproxy proxy-target-class="true"/>
 
     <!-- 定时器开关 -->
@@ -26,10 +28,6 @@
 
     <!-- Validator设置 -->
     <import resource="classpath*:myconfig/spring-servlet-validator.xml"/>
-
-    <!-- 拦截器配置 -->
-    <import resource="classpath*:myconfig/spring-servlet-interceptor.xml"/>
-
     <!-- configs -->
     <bean id="propertyConfigurerForProject1"
           class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -43,7 +41,6 @@
                 <value>classpath*:/application.properties</value>
                 <value>classpath*:/zoo.properties</value>
                 <value>classpath*:/redis-config.properties</value>
-                <value>classpath*:/application.properties</value>
             </list>
         </property>
     </bean>

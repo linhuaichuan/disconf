@@ -15,8 +15,10 @@ import com.baidu.disconf.client.scan.inner.statically.impl.StaticScannerNonAnnot
 import com.baidu.disconf.client.scan.inner.statically.model.ScanStaticModel;
 import com.baidu.disconf.client.scan.inner.statically.strategy.ScanStaticStrategy;
 import com.baidu.disconf.client.scan.inner.statically.strategy.impl.ReflectionScanStatic;
+import com.baidu.disconf.client.scan.inner.statically.strategy.impl.SpringScanStatic;
 import com.baidu.disconf.client.store.inner.DisconfCenterHostFilesStore;
 import com.baidu.disconf.client.support.registry.Registry;
+import com.baidu.disconf.client.support.registry.impl.SpringRegistry;
 
 /**
  * 扫描模块
@@ -36,15 +38,19 @@ public class ScanMgrImpl implements ScanMgr {
 
     private List<StaticScannerMgr> staticScannerMgrList = new ArrayList<StaticScannerMgr>();
 
-    private ScanStaticStrategy scanStaticStrategy = new ReflectionScanStatic();
+    private ScanStaticStrategy scanStaticStrategy = new SpringScanStatic();
 
     /**
      *
      */
     public ScanMgrImpl(Registry registry) {
-
         this.registry = registry;
-
+        if (registry instanceof SpringRegistry) {
+            scanStaticStrategy = new SpringScanStatic();
+        } else {
+            scanStaticStrategy = new ReflectionScanStatic();
+        }
+        
         // 配置文件
         staticScannerMgrList.add(StaticScannerMgrFactory.getDisconfFileStaticScanner());
 

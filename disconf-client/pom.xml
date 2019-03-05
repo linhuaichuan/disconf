@@ -23,7 +23,6 @@
     </licenses>
 
     <dependencies>
-
         <dependency>
             <groupId>com.baidu.disconf</groupId>
             <artifactId>disconf-core</artifactId>
@@ -37,9 +36,8 @@
             <type>test-jar</type>
             <scope>test</scope>
         </dependency>
-
+        
         <!-- common dependencies -->
-
         <dependency>
             <groupId>org.apache.zookeeper</groupId>
             <artifactId>zookeeper</artifactId>
@@ -60,26 +58,21 @@
         </dependency>
 
         <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.reflections</groupId>
-            <artifactId>reflections</artifactId>
-            <version>0.9.9-RC1</version>
-            <optional>true</optional>
-        </dependency>        
 
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjtools</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.reflections</groupId>
+            <artifactId>reflections</artifactId>
+            <version>0.9.9-RC1</version>
+            <optional>true</optional>
+        </dependency>
 
         <!-- log dependencies -->
         <dependency>
@@ -89,7 +82,6 @@
         </dependency>
 
         <!-- ================ test ================ -->
-
         <dependency>
             <groupId>com.googlecode.jmockit</groupId>
             <artifactId>jmockit</artifactId>
@@ -135,7 +127,6 @@
         </dependency>
 
         <!-- ================ provided ================ -->
-
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
@@ -169,7 +160,6 @@
     </dependencies>
 
     <build>
-
         <defaultGoal>package</defaultGoal>
         <finalName>${project.artifactId}</finalName>
         <outputDirectory>target/classes</outputDirectory>
@@ -314,5 +304,4 @@
             </build>
         </profile>
     </profiles>
-
 </project>

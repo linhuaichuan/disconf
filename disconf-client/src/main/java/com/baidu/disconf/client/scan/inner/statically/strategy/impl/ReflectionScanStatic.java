@@ -182,7 +182,7 @@ public class ReflectionScanStatic implements ScanStaticStrategy {
         // 扫描对象
         //
         Reflections reflections = getReflection(packNameList);
-        scanModel.setReflections(reflections);
+//        scanModel.setReflections(reflections);
 
         //
         // 获取DisconfFile class

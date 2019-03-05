@@ -26,7 +26,6 @@ import com.baidu.disconf.client.test.common.BaseSpringMockTestCase;
 import com.baidu.disconf.client.test.model.ConfA;
 import com.baidu.disconf.client.test.model.ServiceA;
 import com.baidu.disconf.client.test.model.StaticConf;
-import com.baidu.disconf.client.test.scan.inner.ScanPackTestCase;
 import com.baidu.disconf.client.test.watch.mock.WatchMgrMock;
 import com.baidu.disconf.client.usertools.DisconfDataGetter;
 import com.baidu.disconf.client.watch.WatchMgr;
@@ -101,7 +100,7 @@ public class DisconfMgrTestCase extends BaseSpringMockTestCase implements Applic
             DisconfCenterHostFilesStore.getInstance().addJustHostFileSet(fileSet);
 
             DisconfMgr.getInstance().setApplicationContext(applicationContext);
-            DisconfMgr.getInstance().start(StringUtil.parseStringToStringList(ScanPackTestCase.SCAN_PACK_NAME,
+            DisconfMgr.getInstance().start(StringUtil.parseStringToStringList("com.baidu.disconf.client.test",
                     DisconfMgrBean.SCAN_SPLIT_TOKEN));
 
             //

@@ -4,8 +4,6 @@ import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.Set;
 
-import org.reflections.Reflections;
-
 import com.baidu.disconf.client.common.update.IDisconfUpdatePipeline;
 
 /**
@@ -15,8 +13,6 @@ import com.baidu.disconf.client.common.update.IDisconfUpdatePipeline;
  * @version 2014-6-9
  */
 public class ScanStaticModel {
-
-    private Reflections reflections;
 
     //
     // 配置文件
@@ -47,14 +43,6 @@ public class ScanStaticModel {
 
     // reload files
     private Set<String> reloadableFiles;
-
-    public Reflections getReflections() {
-        return reflections;
-    }
-
-    public void setReflections(Reflections reflections) {
-        this.reflections = reflections;
-    }
 
     public Set<Class<?>> getDisconfFileClassSet() {
         return disconfFileClassSet;
@@ -132,8 +120,7 @@ public class ScanStaticModel {
     @Override
     public String toString() {
         return "ScanStaticModel{" +
-                "reflections=" + reflections +
-                ", disconfFileClassSet=" + disconfFileClassSet +
+                "disconfFileClassSet=" + disconfFileClassSet +
                 ", disconfFileItemMethodSet=" + disconfFileItemMethodSet +
                 ", disconfFileItemMap=" + disconfFileItemMap +
                 ", disconfItemMethodSet=" + disconfItemMethodSet +

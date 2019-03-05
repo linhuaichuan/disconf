@@ -101,4 +101,8 @@ public class SpringRegistry implements Registry, ApplicationContextAware {
             return (T) proxy;
         }
     }
+
+    public static ApplicationContext getApplicationContext() {
+        return applicationContext;
+    }
 }

@@ -38,7 +38,7 @@ public class ScanMgrImpl implements ScanMgr {
 
     private List<StaticScannerMgr> staticScannerMgrList = new ArrayList<StaticScannerMgr>();
 
-    private ScanStaticStrategy scanStaticStrategy = new SpringScanStatic();
+    private ScanStaticStrategy scanStaticStrategy;
 
     /**
      *
